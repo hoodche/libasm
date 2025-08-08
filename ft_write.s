@@ -35,7 +35,18 @@ error_handler:
 			mov		rax, -1					; return -1
 			ret
 
-section .note.GNU-stack noalloc noexec nowrite progbits
+section .note.GNU-stack noalloc noexec nowrite progbits	;marks stack as non-executable and avoids compiling warnings about executable stack
+; .note.GNU-stack section is a special section used in ELF (Executable and Linkable Format) binaries. It is primarily used to indicate whether
+;  the program requires an executable stack. Modern compilers and linkers use this section to mark the stack as non-executable for security purposes,
+;   helping prevent certain types of attacks like stack-based buffer overflows.
+; noalloc: Indicates that this section does not allocate memory in the program's address space. It is purely informational and does not contribute to the runtime behavior of the program.
+; noexec: Specifies that the section is not executable. This is critical for security, as it ensures that the stack cannot be used to execute arbitrary code. The linker will generate a binary with a non-executable stack
+; nowrite: Marks the section as read-only, meaning it cannot be modified during program execution.
+; progbits: Indicates that the section contains program-specific data. In this case, it is metadata related to the stack's properties.
+
+
+
+;calling functions with wrt ..plt:
 ; PIE (Position Independent Executable) is a security feature
 ; that makes executables load at random memory addresses each time they run,
 ; making it harder for attackers to exploit memory vulnerabilities.

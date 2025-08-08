@@ -26,6 +26,3 @@ compare:
 			cmp		BYTE [rdi + rax], 0	; ¿str[i] == 0? performs a subtraction operation between two operands but discards the result, only keeping the processor flags that indicate the relationship between the values
 			jne		increment			;jump if not equal (jne) instruction checks the zero flag (ZF) set by the cmp instruction. If ZF is not set (meaning the two compared values were not equal), it jumps to the increment label, which increments the index i and continues checking the next character in the string.
 			ret							; return i
-
-;marks stack as non-executable and avoids compiling warnings about executable stack
-section .note.GNU-stack noalloc noexec nowrite progbits
