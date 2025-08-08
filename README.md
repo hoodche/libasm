@@ -2,7 +2,12 @@
 
 ### CPU (Central Processor Unit) process instructions in our code. Different CPU`s process different types of instruction sets (ARM instruction set, X86, X64...). But CPU´s only understand 0's and 1's (binary code)!!!! ASM is the readable representation of the binary language that the processor understands. There's one assembly language per instruction set.
 
-This project is written in in x86_64 ASM (in Intel syntax), the assembly language adapted to processors with X64 instruction set, and compiles (assembles) code with nasm assembler. 64-bit ASM is meant for CPU architectures with 64 bit registers (so we can address much more than 4Gb in RAM!!!!!). A specific calling convention and register set is used
+This project rewrites in x86_64 ASM (in Intel syntax) six functions:
+- Three from the C standard library (strlen, strcpy, strcmp)
+- Two POSIX system calls (write, read) 
+- One POSIX string function (strdup)
+
+x86_64 ASM is assembly language adapted to processors with X64 instruction set. 64-bit ASM is meant for CPU architectures with 64 bit registers (so we can address much more than 4Gb in RAM!!!!!). A specific calling convention and register set is used.
 
 #### Registers in x86_64
 
@@ -35,5 +40,5 @@ Arguments to functions are passed in registers (not on the stack):
 **Return values go in rax.**
 
 ## Usage
-1. with the "make" command we create the libasm.a library (containing ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s, ft_read.s ft_strdup.sfunctions).
+1. with the "make" command we create the libasm.a library (containing ft_strlen, ft_strcpy, ft_strcmp, ft_write, ft_read, ft_strdup functions). Note that you must have gcc and nasm installed (sudo apt install gcc && sudo apt install nasm)
 2. with the "make test" command we compile the libasm.a library with a file (main.c) that tests the libasm.a library. Tests are executed and you can see their output in the terminal.
