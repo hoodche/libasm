@@ -7,7 +7,7 @@ This project rewrites in x86_64 ASM (in Intel syntax) six functions:
 - Two POSIX system calls (write, read) 
 - One POSIX string function (strdup)
 
-x86_64 ASM is assembly language adapted to processors with X64 instruction set. 64-bit ASM is meant for CPU architectures with 64 bit registers (so we can address much more than 4Gb in RAM!!!!!). A specific calling convention and register set is used.
+x86_64 ASM is assembly language adapted to processors with X64 instruction set. 64-bit ASM is meant for CPU architectures with 64 bit registers (so we can address much more than 4Gb in RAM!!!!!). System V AMD64 ABI, which is the standard calling convention for 64-bit Linux and macOS systems, is used.
 
 #### Registers in x86_64
 
